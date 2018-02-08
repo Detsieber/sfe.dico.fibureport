@@ -2,7 +2,7 @@
 <extension key="sfe.dico.fibureport" type="module">
   <file>fibureport</file>
   <name>Fibu Report Digitalcourage</name>
-  <description>Dieser Report basiert auf dem Standard-Report "Bookkeeping" aus CiviCRM. Dieser wurde angepasst hinischtlich Reihenfolge und Formatierung der Felder.</description>
+  <description>Datev-Schnittstelle: Dieser Report basiert auf dem Standard-Report "Bookkeeping" aus CiviCRM. Dieser wurde angepasst hinischtlich Reihenfolge und Formatierung der Felder.</description>
   <license>AGPL-3.0</license>
   <maintainer>
     <author>Detlev Sieber</author>
