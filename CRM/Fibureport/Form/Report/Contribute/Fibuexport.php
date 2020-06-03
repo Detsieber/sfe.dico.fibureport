@@ -253,11 +253,17 @@ class CRM_Fibureport_Form_Report_Contribute_Fibuexport extends CRM_Report_Form {
             'required' => TRUE,
             'no_display' => TRUE,
           ), */
+
           'trxn_date' => array(
+            'title' => ts('Transaction Date'),
+            'default' => TRUE,
+          ),
+
+/*          'trxn_date' => array(
             'title' => 'Kostenstelle',
             'default' => TRUE,
             'required' => TRUE,
-          ),
+          ), */
 /*          'trxn_id' => array(
             'title' => ts('Trans #'),
             'default' => TRUE,
@@ -518,14 +524,14 @@ class CRM_Fibureport_Form_Report_Contribute_Fibuexport extends CRM_Report_Form {
     foreach ($rows as $rowNum => $row) {
       // display receive date in German format
       if (array_key_exists('civicrm_contribution_receive_date', $row)) {
-        $receiveDate = strval(CRM_Utils_Date::customFormat($row['civicrm_contribution_receive_date'], '%d.%m.%Y')) ;
+        $receiveDate = strval(CRM_Utils_Date::customFormat($row['civicrm_financial_trxn_trxn_date'], '%d.%m.%Y')) ;
         $rows[$rowNum]['civicrm_contribution_receive_date'] = substr($receiveDate,0,10) ;
         $entryFound = TRUE;
       }
 
       // fill invoice id with receive date
       if (array_key_exists('civicrm_contribution_receive_date', $row)) {
-        $invoice_id = $row['civicrm_contribution_receive_date'];
+        $invoice_id = $row['civicrm_financial_trxn_trxn_date'];
         if ($invoice_id) {
           $rows[$rowNum]['civicrm_contribution_invoice_id'] = CRM_Utils_Date::customFormat($invoice_id, '%Y%m%d');
         }
@@ -555,11 +561,11 @@ class CRM_Fibureport_Form_Report_Contribute_Fibuexport extends CRM_Report_Form {
         $rows[$rowNum]['civicrm_line_item_financial_type_id'] = "0";
       }
 
-      // Re-use (hard code) column "Transaction Date" as "Kostenstelle"
+/*      // Re-use (hard code) column "Transaction Date" as "empty"
       if ($value = CRM_Utils_Array::value('civicrm_financial_trxn_trxn_date', $row)) {
         $rows[$rowNum]['civicrm_financial_trxn_trxn_date'] = "13";
       }
-
+*/
 
       // handle contribution status id
       if ($value = CRM_Utils_Array::value('civicrm_contribution_contribution_status_id', $row)) {
