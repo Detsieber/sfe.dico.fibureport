@@ -4,8 +4,7 @@
  | CiviCRM version 4.6                                                |
  +--------------------------------------------------------------------+
  | Copyright CiviCRM LLC (c) 2004-2015                                |
- +--------------------------------------------------------------------+
- | This file is a part of CiviCRM.                                    |
+ + This file is a part of CiviCRM.                                    |
  |                                                                    |
  | CiviCRM is free software; you can copy, modify, and distribute it  |
  | under the terms of the GNU Affero General Public License           |
@@ -558,7 +557,13 @@ class CRM_Fibureport_Form_Report_Contribute_Fibuexport extends CRM_Report_Form {
 
       // Re-use (hard code) column "contribution type" as "Steuerschlüssel"
       if ($value = CRM_Utils_Array::value('civicrm_line_item_financial_type_id', $row)) {
-        $rows[$rowNum]['civicrm_line_item_financial_type_id'] = "0";
+	$accounting_code = $rows[$rowNum]['civicrm_financial_account_credit_accounting_code'];
+        if ($accounting_code=="8032"){ 
+	      $rows[$rowNum]['civicrm_line_item_financial_type_id'] = "3";
+              }
+        else {$rows[$rowNum]['civicrm_line_item_financial_type_id'] = "0";
+              }
+
       }
 
 /*      // Re-use (hard code) column "Transaction Date" as "empty"
