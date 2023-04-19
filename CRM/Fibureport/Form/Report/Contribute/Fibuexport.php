@@ -551,8 +551,8 @@ class CRM_Fibureport_Form_Report_Contribute_Fibuexport extends CRM_Report_Form {
 
 
       // convert display name to posting text
-        $rows[$rowNum]['civicrm_contact_sort_name'] = $rows[$rowNum]['civicrm_line_item_financial_type_id']
-		. " - " . $rows[$rowNum]['civicrm_contact_sort_name'];
+        $rows[$rowNum]['civicrm_contact_sort_name'] = $rows[$rowNum]['civicrm_contact_sort_name']
+		. " - " . $rows[$rowNum]['civicrm_line_item_financial_type_id'];
       
 
       // Re-use (hard code) column "contribution type" as "Steuerschlüssel"
